@@ -3,20 +3,22 @@ import "./App.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Homescreen from "./pages/Homepage";
+import Productpage from "./pages/Productpage";
 import { Container } from "react-bootstrap";
-
+import { BrowserRouter as Router, Route } from "react-router-dom";
 function App() {
   return (
-    <div>
+    <Router>
       <Header />
 
       <main>
         <Container>
-          <Homescreen />
+          <Route path="/" component={Homescreen} exact />
+          <Route path="/product/:id" component={Productpage} exact />
         </Container>
       </main>
       <Footer />
-    </div>
+    </Router>
   );
 }
 

@@ -4,22 +4,28 @@ import Nav from "react-bootstrap/Nav";
 import { Container } from "react-bootstrap";
 import { GiShoppingCart } from "react-icons/gi";
 import { FaUserCircle } from "react-icons/fa";
+import { LinkContainer } from "react-router-bootstrap";
 const Header = () => {
   return (
     <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
       <Container>
-        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+        <LinkContainer to="/">
+          <Navbar.Brand>React-Bootstrap</Navbar.Brand>
+        </LinkContainer>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
-            <Nav.Link href="/cart">
-              <GiShoppingCart />
-              cart
-            </Nav.Link>
-            <Nav.Link href="/login">
-              {" "}
-              <FaUserCircle /> login
-            </Nav.Link>
+            <LinkContainer to="/cart">
+              <Nav.Link>
+                <GiShoppingCart />
+                cart
+              </Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/login">
+              <Nav.Link>
+                <FaUserCircle /> login
+              </Nav.Link>
+            </LinkContainer>
           </Nav>
         </Navbar.Collapse>
       </Container>
