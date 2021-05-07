@@ -8,6 +8,7 @@ import express from "express";
 import dotenv from "dotenv";
 import connectDB from "./config/db.js";
 import productRoutes from "./routes/productRoutes.js";
+import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
 // if u want to  convert require to import then  use
 // "type":"module", in packg.json server
 // and remode module.exports=products to export default products
@@ -17,6 +18,7 @@ dotenv.config();
 app.get("/", (req, res) => {
   res.send("api is running");
 });
+
 // app.get("/api/products", (req, res) => {
 //   res.json(products);
 // });
@@ -25,6 +27,8 @@ app.get("/", (req, res) => {
 //   res.json(product);
 // });
 app.use("/api/products", productRoutes);
+app.use(notFound);
+app.use(errorHandler);
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, console.log(`server runnning on ${PORT}`));
