@@ -5,7 +5,7 @@ import axios from "axios";
 import Product from "./../components/Product";
 const Homepage = () => {
   const [Products, setProducts] = useState();
-
+  console.log(Products, "dsadasa");
   useEffect(() => {
     const getproducts1 = async () => {
       const { data } = await axios.get("api/products");
@@ -19,7 +19,7 @@ const Homepage = () => {
       <h1>latest product</h1>
       <Row>
         {Products?.map((product) => (
-          <Col key={product.id} sm={12} md={6} lg={4} xl={3}>
+          <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
             <Product product={product} />
           </Col>
         ))}

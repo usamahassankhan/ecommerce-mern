@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Products } from "./../products";
+// import { Products } from "./../products";
 import Rating from "./../components/Rating";
 import { Link } from "react-router-dom";
 import { Row, Col, Image, ListGroup, Card, Button } from "react-bootstrap";
@@ -7,7 +7,7 @@ import axios from "axios";
 const Productpage = (props) => {
   // console.log(props);
   // const product = Products.find((p) => p.id === props.match.params.id);
-
+  console.log(props, "pr");
   const [product, setProduct] = useState({});
 
   useEffect(() => {
