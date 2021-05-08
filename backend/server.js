@@ -16,6 +16,7 @@ connectDB();
 const app = express();
 dotenv.config();
 app.get("/", (req, res) => {
+  // throw new Error("message not");
   res.send("api is running");
 });
 
